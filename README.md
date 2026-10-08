@@ -6,9 +6,9 @@ Rep-facing material selection form. Moved off Viktor Spaces Sept 2026.
 1. Rep signs in with their name and @cpoolworks.com email, gets a 6 digit code by email, and stays signed in on that device for 30 days. No admin setup: new reps sign themselves up. After 30 days they confirm their email again, so when a CPW mailbox is shut off, access lapses on its own. Instant cutoff: set Active to No on the Reps tab of the log sheet.
 2. Rep fills the form with the client. Progress autosaves on the device.
 3. Submit posts to the **CPW Material Selections Proxy** (Google Apps Script, owned by info@cpoolworks.com).
-4. The proxy checks the rep's session (rep name/email come from the verified session), logs a full copy to the **Material Selections Log** sheet (info@ Drive), and forwards to the Viktor webhook `/cpw/material-selections-submit`.
-5. Viktor does the rest: selection sheet, DocuSign, Drive filing, ClickUp, team notice.
-6. If Viktor rejects or is down, the rep sees an error (nothing is lost), and info@ gets an email with the log row to resend (`resendRow(n)` in the script).
+4. The proxy checks the rep's session (rep name/email come from the verified session), logs a full copy to the **Material Selections Log** sheet (info@ Drive), and forwards to Claire (Script Property `VIKTOR_WEBHOOK_URL`, now pointed at Claire).
+5. Claire does the rest: selection sheet, parks the DocuSign for Thomas to approve, GHL note, ClickUp.
+6. If Claire rejects or is down, the rep sees an error (nothing is lost), and info@ gets an email with the log row to resend (`resendRow(n)` in the script).
 
 ## Files
 - `index.html` built app (React, single file). Do not hand edit.
